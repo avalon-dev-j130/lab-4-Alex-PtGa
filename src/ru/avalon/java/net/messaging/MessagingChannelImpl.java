@@ -42,7 +42,7 @@ class MessagingChannelImpl implements MessagingChannel {
      * исключения в нижележащих потоковых объектах.
      */
     MessagingChannelImpl(Socket socket) throws IOException {
-        if (socket.isClosed()) {
+        if (socket.isClosed()) {                                  // возвращает закрытое состояние сокета
             throw new IOException("Underlying socket is closed!");
         }
         this.socket = socket;
