@@ -93,8 +93,7 @@ public final class UdpReceiver {
     private static String getMessage(DatagramPacket packet) throws UnsupportedEncodingException {
         /*
          * TODO Реализовать метод getMessage класса UdpReceiver
-         */
-    
+         */    
         String message = new String(packet.getData());         
  //       throw new UnsupportedOperationException("Not implemented yet!");
         return message;

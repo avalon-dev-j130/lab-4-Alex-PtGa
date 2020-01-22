@@ -1,12 +1,14 @@
 package ru.avalon.java.tcp;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketAddress;
+import java.net.UnknownHostException;
 
 /**
- * Упражнение на выработку базовых умений использования
- * протокола TCP.
+ * Упражнение на выработку базовых умений использования протокола TCP.
  *
  * @author Daniel Alpatov
  */
@@ -34,7 +36,10 @@ public final class TcpSender {
         /*
          * TODO Реализовать метод prepareMessage класса TcpSender
          */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        //       throw new UnsupportedOperationException("Not implemented yet!");
+        String message = "Hello over TCP protocol";
+
+        return message;
     }
 
     /**
@@ -42,11 +47,20 @@ public final class TcpSender {
      *
      * @return экземпля типа {@link SocketAddress}
      */
-    private static SocketAddress prepareAddress() {
+    private static SocketAddress prepareAddress() throws UnknownHostException, IOException {
         /*
          * TODO Реализовать метод prepareAddress класса TcpSender
          */
-        throw new UnsupportedOperationException("Not implemented yet!");
+        //     throw new UnsupportedOperationException("Not implemented yet!");
+
+//        SocketAddress adrSocket = null;
+//        InetAddress ddress = InetAddress.getByName("localhost");
+//
+//        adrSocket = new SocketAddressImpl(ddress);
+//
+//        System.out.println("Server started\n\n");
+        
+        return new SocketAddress adrSocket;
     }
 
     /**
@@ -79,6 +93,13 @@ public final class TcpSender {
          * TODO Реализовать метод send класса TcpSender
          */
         throw new UnsupportedOperationException("Not implemented yet!");
+    }
+
+    private static class SocketAddressImpl extends SocketAddress {
+
+        public SocketAddressImpl(InetAddress ddress) {
+            super(ddress);
+        }
     }
 
 }
