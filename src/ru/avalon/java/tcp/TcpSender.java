@@ -1,8 +1,10 @@
 package ru.avalon.java.tcp;
 
 import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.InetAddress;
-import java.net.ServerSocket;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
 import java.net.UnknownHostException;
@@ -53,14 +55,10 @@ public final class TcpSender {
          */
         //     throw new UnsupportedOperationException("Not implemented yet!");
 
-//        SocketAddress adrSocket = null;
-//        InetAddress ddress = InetAddress.getByName("localhost");
-//
-//        adrSocket = new SocketAddressImpl(ddress);
-//
-//        System.out.println("Server started\n\n");
-        
-        return new SocketAddress adrSocket;
+        InetAddress addr = InetAddress.getLocalHost();
+        int port = 0;
+        SocketAddress sockaddr = new InetSocketAddress(addr, port);
+        return sockaddr;
     }
 
     /**
@@ -77,11 +75,15 @@ public final class TcpSender {
         /*
          * TODO Реализовать метод connect класса TcpSender
          */
-        throw new UnsupportedOperationException("Not implemented yet!");
+//        throw new UnsupportedOperationException("Not implemented yet!");
+        Socket sock = new Socket();
+        sock.connect(address);
+
+        return sock;
     }
 
     /**
-     * Выполняет отправку сообщения {@code message} на {@code socket}.
+     * Выполняет отправку сообщения {@code message} на {@code socket}
      *
      * @param socket соединение, через которое будет отправлено сообщение.
      * @param message сообщение
@@ -92,14 +94,10 @@ public final class TcpSender {
         /*
          * TODO Реализовать метод send класса TcpSender
          */
-        throw new UnsupportedOperationException("Not implemented yet!");
+ //       throw new UnsupportedOperationException("Not implemented yet!");
+        OutputStream stream = socket.getOutputStream();
+            PrintWriter writer = new PrintWriter(stream);
+            writer.write(message);
+            writer.flush();
     }
-
-    private static class SocketAddressImpl extends SocketAddress {
-
-        public SocketAddressImpl(InetAddress ddress) {
-            super(ddress);
-        }
-    }
-
 }

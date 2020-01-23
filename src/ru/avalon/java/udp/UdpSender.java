@@ -5,6 +5,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.net.UnknownHostException;
 
@@ -51,21 +52,16 @@ public final class UdpSender {
      *
      * @return адрес конечной точки.
      */
-    private static DatagramSocket prepareAddress() throws UnsupportedEncodingException,
-            UnknownHostException {
+    private static SocketAddress prepareAddress() throws UnsupportedEncodingException,
+                                                             UnknownHostException,IOException {
         /*
          * TODO Реализовать метод prepareAddress класса UdpSender
          */
 //        throw new UnsupportedOperationException("Not implemented yet!");
         InetAddress address = InetAddress.getLocalHost();
-        DatagramPacket packet = pack(prepareMessage());
-
-        packet.setAddress(address);
-        packet.setPort(0);
-
-        DatagramSocket socket = createSocket();
-        socket.send(packet);
-        return socket;
+         int port = 0;
+        SocketAddress sockaddr = new InetSocketAddress(address, port);
+        return sockaddr;
     }
 
     /**
@@ -81,7 +77,8 @@ public final class UdpSender {
         //  throw new UnsupportedOperationException("Not implemented yet!");
         DatagramSocket socket = new DatagramSocket();
         
-        socket.bind(null);
+        socket.send(null);
+        return null;
     }
 
     /**
