@@ -8,6 +8,7 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
 import java.net.UnknownHostException;
+import java.util.Scanner;
 
 /**
  * Упражнение на выработку базовых умений использования протокола TCP.
@@ -39,9 +40,11 @@ public final class TcpSender {
          * TODO Реализовать метод prepareMessage класса TcpSender
          */
         //       throw new UnsupportedOperationException("Not implemented yet!");
-        String message = "Hello over TCP protocol";
+        Scanner scanner = new Scanner(System.in);
+        String message = scanner.nextLine();
 
         return message;
+
     }
 
     /**
@@ -56,7 +59,7 @@ public final class TcpSender {
         //     throw new UnsupportedOperationException("Not implemented yet!");
 
         InetAddress addr = InetAddress.getLocalHost();
-        int port = 0;
+        int port = 8080;
         SocketAddress sockaddr = new InetSocketAddress(addr, port);
         return sockaddr;
     }

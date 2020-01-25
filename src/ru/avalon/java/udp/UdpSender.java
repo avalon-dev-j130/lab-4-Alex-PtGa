@@ -8,6 +8,7 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import java.net.UnknownHostException;
+import java.util.Scanner;
 
 /**
  * Упражнение, направленное на выработку умений, связанных с отправкой сообщений
@@ -44,7 +45,10 @@ public final class UdpSender {
          * TODO Реализовать метод prepareMessage класса UdpSender
          */
 //        throw new UnsupportedOperationException("Not implemented yet!");
-        return "Hello over UDP protocol!";
+       Scanner scanner = new Scanner(System.in);
+        String message = scanner.nextLine();
+
+        return message;
     }
 
     /**
@@ -59,7 +63,7 @@ public final class UdpSender {
          */
 //        throw new UnsupportedOperationException("Not implemented yet!");
         InetAddress address = InetAddress.getLocalHost();
-         int port = 0;
+         int port = 8080;
         SocketAddress sockaddr = new InetSocketAddress(address, port);
         return sockaddr;
     }
@@ -75,10 +79,8 @@ public final class UdpSender {
          * TODO Реализовать метод createSocket класса UdpSender
          */
         //  throw new UnsupportedOperationException("Not implemented yet!");
-        DatagramSocket socket = new DatagramSocket();
-        
-        socket.send(null);
-        return null;
+   
+        return new DatagramSocket();
     }
 
     /**

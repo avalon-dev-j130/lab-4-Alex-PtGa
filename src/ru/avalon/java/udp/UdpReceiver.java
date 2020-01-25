@@ -17,7 +17,7 @@ public final class UdpReceiver {
         // 2. Формируем пакет, на основе созданного буфера.
         final DatagramPacket packet = preparePacket(buffer);
         // 3. Выбираем порт, на который ожидается получение сообщения.
-        final int port = 0;
+        final int port = 8080;
         // 4. Формируем сокет, связанный с выбранным портом.
         final DatagramSocket socket = prepareSocket(port);
         // 5. Получаем сообщение.
@@ -76,7 +76,7 @@ public final class UdpReceiver {
          * TODO Реализовать метод prepareSocket класса UdpReceiver
          */
         DatagramSocket socket = new DatagramSocket(port);
-        socket.receive(packet);
+  //      socket.receive(packet);
         return socket;
 
         //       throw new UnsupportedOperationException("Not implemented yet!");
@@ -90,11 +90,12 @@ public final class UdpReceiver {
      *
      * @return строковое сообщение.
      */
-    private static String getMessage(DatagramPacket packet) throws UnsupportedEncodingException {
+    private static String getMessage(DatagramPacket packet)
+                                              throws UnsupportedEncodingException {
         /*
          * TODO Реализовать метод getMessage класса UdpReceiver
          */    
-        String message = new String(packet.getData());         
+        String message = new String(packet.getData(), "UTF-8");         
  //       throw new UnsupportedOperationException("Not implemented yet!");
         return message;
     }
