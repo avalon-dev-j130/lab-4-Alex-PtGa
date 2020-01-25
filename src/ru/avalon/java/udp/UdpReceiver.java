@@ -53,14 +53,12 @@ public final class UdpReceiver {
      *
      * @return экземпляр типа {@link DatagramPacket}.
      */
-    static DatagramPacket packet = null;
-
+ 
     private static DatagramPacket preparePacket(byte[] buffer) {
         /*
          * TODO Реализовать метод preparePacket класса UdpReceiver
          */
-        packet = new DatagramPacket(buffer, buffer.length);
-        return packet;
+        return new DatagramPacket(buffer, buffer.length);         
         // throw new UnsupportedOperationException("Not implemented yet!");
     }
 
@@ -91,7 +89,7 @@ public final class UdpReceiver {
      * @return строковое сообщение.
      */
     private static String getMessage(DatagramPacket packet)
-                                              throws UnsupportedEncodingException {
+                                    throws UnsupportedEncodingException {
         /*
          * TODO Реализовать метод getMessage класса UdpReceiver
          */    

@@ -12,7 +12,8 @@ import static java.util.Collections.synchronizedCollection;
 /**
  * @author Daniel Alpatov
  */
-public class ChatServer extends Server implements Connection.StateListener, Connection.MessageListener<String> {
+public class ChatServer extends Server implements Connection.StateListener,
+                                                  Connection.MessageListener<String> {
 
     public static void main(String[] args) throws IOException {
         try (ChatServer server = new ChatServer()) {
@@ -20,6 +21,7 @@ public class ChatServer extends Server implements Connection.StateListener, Conn
             System.out.println("Server started! To exit press ENTER >>");
             System.in.read();
         }
+        
     }
 
     private final Collection<Connection> connections;
